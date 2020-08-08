@@ -1,0 +1,16 @@
+{
+  "name": "dinosaurs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "test": "true",
+    "start": "node server.js"
+  },
+  "author": "Manpreet Singh (manpreet1107@gmail.com)",
+  "license": "ISC"
+}
