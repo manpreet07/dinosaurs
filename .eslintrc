@@ -63,5 +63,8 @@
         "use-isnan": 2,
         "valid-typeof": 2
     },
-    "env": {}
+	"env": {
+        "browser": true,
+        "node": true
+    }
 }

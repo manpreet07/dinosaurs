@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "eslint": "^7.6.0"
+  },
   "devDependencies": {
     "express": "^4.17.1"
   },
   "scripts": {
     "test": "true",
-    "start": "node server.js"
+	"start": "node server.js",
+	"lint": "eslint --ext .js ."
   },
   "author": "Manpreet Singh (manpreet1107@gmail.com)",
   "license": "ISC"

@@ -1,0 +1,10 @@
+{
+	"files.trimTrailingWhitespace": true,
+	"eslint.autoFixOnSave": true,
+	"eslint.validate": [
+		{"language": "javascript", "autoFix": true}
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
+}

@@ -13,13 +13,13 @@ fetch('http://localhost:3000/dino.json')
 
 /**
  * Dino Constructor
- * @param {*} species 
- * @param {*} weight 
- * @param {*} height 
- * @param {*} diet 
- * @param {*} where 
- * @param {*} when 
- * @param {*} fact 
+ * @param {string} species
+ * @param {number} weight
+ * @param {number} height
+ * @param {string} diet
+ * @param {string} where
+ * @param {string} when
+ * @param {string[]} fact
  */
 function Dino(species, weight, height, diet, where, when, fact) {
 	this.species = species;
@@ -32,7 +32,11 @@ function Dino(species, weight, height, diet, where, when, fact) {
 }
 
 /**
- * Human Object
+ * Human constructor
+ * @param {string} name
+ * @param {number} weight
+ * @param {object} height
+ * @param {string} diet
  */
 function Human(name, weight, height, diet) {
 	this.name = name;
@@ -42,29 +46,18 @@ function Human(name, weight, height, diet) {
 }
 
 /**
- * Dinosaurs Data
- */
-const dinosaurs = function dinoObjects() {
-	let dinoArr = []
-	for (const dino of dinoJson) {
-		dinoArr.push(new Dino(dino.species, dino.weight, dino.height, dino.diet, dino.where, dino.when, [dino.fact]))
-	}
-	return dinoArr;
-}
-
-/**
  * Use IIFE to get human data from form
  */
 const getHumanData = (function () {
 	return {
 		humanData: function () {
-			name = document.getElementById("name").value;
-			weight = document.getElementById("weight").value;
-			height = {
+			const name = document.getElementById("name").value;
+			const weight = document.getElementById("weight").value;
+			const height = {
 				feet: document.getElementById("feet").value,
 				inches: document.getElementById("inches").value
 			};
-			diet = document.getElementById("diet").value;
+			const diet = document.getElementById("diet").value;
 			return new Human(name, weight, height, diet);
 		}
 	}
@@ -73,9 +66,12 @@ const getHumanData = (function () {
 
 /**
  * Create Height of Human and Dinosaurs
+ *
+ * @param {Dino} dinos
+ * @param {Human} human
  */
 function compareHeight(dinos, human) {
-	for (dino of dinos) {
+	for (const dino of dinos) {
 		if (dino.species !== 'Pigeon') {
 			if (dino.height > human.height.feet) {
 				dino.facts.push(`${dino.species} is ${dino.height - human.height.feet} feet taller than ${human.name}`);
@@ -89,9 +85,12 @@ function compareHeight(dinos, human) {
 
 /**
  * Create Weight of Human and Dinosaurs
+ *
+ * @param {Dino} dinos
+ * @param {Human} human
  */
 function compareWeight(dinos, human) {
-	for (dino of dinos) {
+	for (const dino of dinos) {
 		if (dino.species !== 'Pigeon') {
 			if (dino.weight > human.weight) {
 				dino.facts.push(`${dino.species} is ${dino.weight - human.weight} lb heavier than ${human.name}`);
@@ -105,9 +104,12 @@ function compareWeight(dinos, human) {
 
 /**
  * Create Diet of Human and Dinosaurs
+ *
+ * @param {Dino} dinos
+ * @param {Human} human
  */
 function compareDiet(dinos, human) {
-	for (dino of dinos) {
+	for (const dino of dinos) {
 		if (dino.species !== 'Pigeon') {
 			dino.facts.push(`${dino.species} diet is ${dino.diet} and ${human.name} diet is ${human.diet}`);
 		}
@@ -151,6 +153,7 @@ const tiles = function generateTiles() {
 /**
  * Add tiles to DOM
  */
+// eslint-disable-next-line no-unused-vars
 function addTiles() {
 	tiles(dinos);
 	removeForm();
